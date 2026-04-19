@@ -17,19 +17,17 @@ type DropdownFilterProps = {
 
 const DropdownFilter: React.FC<DropdownFilterProps> = ({
     title,
-
     isOpen = false,
     onToggle,
-    isLast = false,
 }) => {
     return (
         <div className="relative">
             <button
                 onClick={onToggle}
-                className={`flex items-center justify-between px-4 py-2 text-sm font-medium transition-colors  ${
+                className={`flex items-center justify-between px-4 py-2 text-sm font-medium transition-colors cursor-pointer  ${
                     isOpen
                         ? 'border-t-red-500 border-l-red-500 border-r-red-500 border-b-0 text-red-700'
-                        : `border-gray-300 bg-white text-gray-700 hover:bg-gray-50 ${isLast ? 'border-r' : ''}`
+                        : `border-gray-300 bg-white text-gray-700 hover:bg-gray-50 `
                 }`}
             >
                 <span>{title}</span>

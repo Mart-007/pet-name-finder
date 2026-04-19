@@ -5,7 +5,7 @@ type ButtonsProps = {
     onGenderChange: (gender: string) => void;
 };
 
-const Buttons = ({ selectedGender, onGenderChange }: ButtonsProps) => {
+const FilterGenders = ({ selectedGender, onGenderChange }: ButtonsProps) => {
     return (
         <div className="flex flex-row items-center justify-center gap-4">
             <ButtonFilter
@@ -33,4 +33,4 @@ const Buttons = ({ selectedGender, onGenderChange }: ButtonsProps) => {
     );
 };
 
-export default Buttons;
+export default FilterGenders;

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import {
-    Buttons,
-    Filters,
+    FilterCategories,
     Title,
     AllPetsName,
     PetNamesList,
 } from './components';
 import './assets/styles/app.css';
+import FilterGenders from './components/FilterGenders';
 
 function App() {
     const [selectedGender, setSelectedGender] = useState('');
@@ -17,13 +17,13 @@ function App() {
 
     return (
         <div className="flex flex-col min-h-screen bg-[#f0f5f5]">
-            <div className="header flex flex-col items-center justify-center py-4 gap-4">
+            <div className="header flex flex-col items-center justify-center py-4 gap-6">
                 <Title />
-                <Buttons
+                <FilterGenders
                     selectedGender={selectedGender}
                     onGenderChange={setSelectedGender}
                 />
-                <Filters
+                <FilterCategories
                     selectedFilters={selectedFilters}
                     onFiltersChange={setSelectedFilters}
                 />

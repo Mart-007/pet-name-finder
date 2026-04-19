@@ -7,7 +7,10 @@ type FiltersProps = {
     onFiltersChange: (filters: Record<string, string>) => void;
 };
 
-const Filters = ({ selectedFilters, onFiltersChange }: FiltersProps) => {
+const FilterCategories = ({
+    selectedFilters,
+    onFiltersChange,
+}: FiltersProps) => {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
     const categoriesMap = new Map(
@@ -38,7 +41,9 @@ const Filters = ({ selectedFilters, onFiltersChange }: FiltersProps) => {
     return (
         <div className="w-full border-t border-b border-gray-300 relative bg-white">
             <div className="flex items-center justify-center">
-                <span className="px-4 py-4 text-sm font-medium text-gray-700 border-r border-gray-300">
+                <span
+                    className={`px-4 py-4 text-sm font-medium text-gray-700 border-gray-300 ${!openDropdown ? 'border-r' : ''}`}
+                >
                     Filters:
                 </span>
                 <div className="flex">
@@ -59,8 +64,8 @@ const Filters = ({ selectedFilters, onFiltersChange }: FiltersProps) => {
                 </div>
             </div>
             {openDropdown && (
-                <div className="w-full bg-white">
-                    <div className="flex pl-4">
+                <div className="w-full bg-white animate-dropdown-open ease-in duration-300">
+                    <div className="flex pl-4 pl-57">
                         {filterGroups
                             .find((g) => g.id === openDropdown)
                             ?.options.map((option) => (
@@ -100,4 +105,4 @@ const Filters = ({ selectedFilters, onFiltersChange }: FiltersProps) => {
     );
 };
 
-export default Filters;
+export default FilterCategories;
